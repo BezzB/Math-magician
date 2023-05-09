@@ -64,6 +64,9 @@
 
 
 - **[Caluclator]**
+- - **[Home-page]**
+- - **[Error-handling section]**
+  
 - **[Modules framework used]**
 - Css
 - Javascript
