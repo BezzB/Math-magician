@@ -22,18 +22,23 @@ function App() {
           <span>(0)</span>
           0
         </div>
+        <div className="scienceo">
+          <button type="button">AC</button>
+          <button type="button">+/-</button>
+          <button type="button">%</button>
+
+        </div>
         <div className="operators">
-          <button type="button">/</button>
+          <button type="button">÷</button>
           <button type="button">*</button>
           <button type="button">+</button>
           <button type="button">-</button>
-          <button type="button">DEL</button>
+          <button type="button">=</button>
         </div>
         <div className="digits">
           {createDigits()}
-          <button type="button">0</button>
+          <button className="zero" type="button">0</button>
           <button type="button">.</button>
-          <button type="button">=</button>
         </div>
       </div>
     </div>
