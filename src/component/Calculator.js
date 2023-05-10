@@ -1,6 +1,10 @@
 import React from 'react';
+import Operate from './operate';
 
-function App() {
+// Call the Operate function
+Operate();
+
+function Calculator() {
   const createDigits = () => {
     const digits = [];
     // eslint-disable-next-line no-plusplus
@@ -45,4 +49,4 @@ function App() {
   );
 }
 
-export default App;
+export default Calculator;
