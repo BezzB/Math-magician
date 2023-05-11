@@ -1,24 +1,8 @@
 import React from 'react';
-import Operate from './operate';
+import Digits from './digitshow';
 
 // Call the Operate function
-Operate();
-
 function Calculator() {
-  const createDigits = () => {
-    const digits = [];
-    // eslint-disable-next-line no-plusplus
-    for (let i = 1; i < 10; i++) {
-      digits.push(
-        // eslint-disable-next-line react/button-has-type
-        <button key={i}>
-          {i}
-        </button>,
-      );
-    }
-    return digits;
-  };
-
   return (
     <div className="App">
       <div className="calculator">
@@ -30,7 +14,6 @@ function Calculator() {
           <button type="button">AC</button>
           <button type="button">+/-</button>
           <button type="button">%</button>
-
         </div>
         <div className="operators">
           <button type="button">÷</button>
@@ -40,9 +23,7 @@ function Calculator() {
           <button type="button">=</button>
         </div>
         <div className="digits">
-          {createDigits()}
-          <button className="zero" type="button">0</button>
-          <button type="button">.</button>
+          <Digits />
         </div>
       </div>
     </div>
