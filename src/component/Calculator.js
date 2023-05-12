@@ -1,64 +1,50 @@
-/* eslint-disable no-console */
 import { useState } from 'react';
-import Digits from './digitshow';
-// import calculate from './logic/calculate';
+import calculate from './logic/calculate';
 
 function Calculator() {
-  const [calc, setCalc] = useState('');
-  const [result, setResult] = useState('');
+  const [state, setState] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
 
-  const ops = ['/', '*', '+', '-', '.'];
-
-  const updateCalc = (value) => {
-    if (
-      (ops.includes(value) && calc === '')
-      || (ops.includes(value) && ops.includes(calc.slice(-1)))
-    ) {
-      return;
-    }
-
-    setCalc((prevCalc) => prevCalc + value);
-
-    if (!ops.includes(value)) {
-      // eslint-disable-next-line no-eval
-      setResult(eval(calc + value).toString());
-    }
-  };
+  function doMath(event) {
+    const newState = calculate(state, event.target.value);
+    setState(newState);
+  }
 
   return (
     <div className="App">
       <div className="calculator">
         <div className="display">
-          {result ? <span>{result}</span> : ''}
-          {calc || '0'}
-          0
-        </div>
-        <div className="scienceo">
-          <button type="button">AC</button>
-          <button type="button" onClick={() => updateCalc('+/-')}>
-            +/-
-          </button>
-          <button type="button" onClick={() => updateCalc('%')}>
-            %
-          </button>
+          <input
+            className="display"
+            id="formula"
+            type="text"
+            value={state.next || state.operation || state.total || 0}
+            readOnly
+          />
         </div>
         <div className="operators">
-          <button type="button" onClick={() => updateCalc('÷')}>
-            ÷
-          </button>
-          <button type="button" onClick={() => updateCalc('*')}>
-            *
-          </button>
-          <button type="button" onClick={() => updateCalc('+')}>
-            +
-          </button>
-          <button type="button" onClick={() => updateCalc('-')}>
-            -
-          </button>
-          <button type="button">=</button>
-        </div>
-        <div className="digits">
-          <Digits updateCalc={updateCalc} />
+          <input className="btn" type="button" value="AC" onClick={doMath} />
+          <input className="btn" type="button" value="+/-" onClick={doMath} />
+          <input className="btn" type="button" value="%" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="÷" />
+          <input className="btn" type="button" value="7" onClick={doMath} />
+          <input className="btn" type="button" value="8" onClick={doMath} />
+          <input className="btn" type="button" value="9" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="x" />
+          <input className="btn" type="button" value="4" onClick={doMath} />
+          <input className="btn" type="button" value="5" onClick={doMath} />
+          <input className="btn" type="button" value="6" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="-" />
+          <input className="btn" type="button" value="1" onClick={doMath} />
+          <input className="btn" type="button" value="2" onClick={doMath} />
+          <input className="btn" type="button" value="3" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="+" />
+          <input className="btn" id="zero" type="button" value="0" onClick={doMath} />
+          <input className="btn" type="button" value="." onClick={doMath} />
+          <input className="btn math-opr" type="button" value="=" onClick={doMath} />
         </div>
       </div>
     </div>
