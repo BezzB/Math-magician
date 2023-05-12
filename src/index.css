@@ -50,19 +50,19 @@ body {
 .operators {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  
 }
+
 .btn {
   width: 100px; /* Adjusted width to fit all buttons */
   height: 75px; /* Adjusted height to fit all buttons */
   font-size: 18px;
-  
 }
 
 .math-opr {
   background-color: orange;
   color: white;
 }
+
 #zero.btn {
   width: 200px;
   grid-column: span 2; /* Makes the zero button span two columns */
