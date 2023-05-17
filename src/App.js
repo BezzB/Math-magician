@@ -1,13 +1,13 @@
 import React from 'react';
-import App from './component/Calculator';
+import Calculator from './component/Calculator';
 
-function MainApp() {
+function App() {
   return (
     <div>
       <h1>Calculator</h1>
-      <App />
+      <Calculator />
     </div>
   );
 }
 
-export default MainApp;
+export default App;

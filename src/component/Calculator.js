@@ -1,43 +1,54 @@
-import React from 'react';
+import { useState } from 'react';
+import calculate from './logic/calculate';
 
-function App() {
-  const createDigits = () => {
-    const digits = [];
-    // eslint-disable-next-line no-plusplus
-    for (let i = 1; i < 10; i++) {
-      digits.push(
-        // eslint-disable-next-line react/button-has-type
-        <button key={i}>
-          {i}
-        </button>,
-      );
-    }
-    return digits;
-  };
+function Calculator() {
+  const [state, setState] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
+
+  function doMath(event) {
+    const newState = calculate(state, event.target.value);
+    setState(newState);
+  }
 
   return (
     <div className="App">
       <div className="calculator">
         <div className="display">
-          <span>(0)</span>
-          0
+          <input
+            className="display"
+            id="formula"
+            type="text"
+            value={state.next || state.operation || state.total || 0}
+            readOnly
+          />
         </div>
         <div className="operators">
-          <button type="button">/</button>
-          <button type="button">*</button>
-          <button type="button">+</button>
-          <button type="button">-</button>
-          <button type="button">DEL</button>
-        </div>
-        <div className="digits">
-          {createDigits()}
-          <button type="button">0</button>
-          <button type="button">.</button>
-          <button type="button">=</button>
+          <input className="btn" type="button" value="AC" onClick={doMath} />
+          <input className="btn" type="button" value="+/-" onClick={doMath} />
+          <input className="btn" type="button" value="%" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="÷" />
+          <input className="btn" type="button" value="7" onClick={doMath} />
+          <input className="btn" type="button" value="8" onClick={doMath} />
+          <input className="btn" type="button" value="9" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="x" />
+          <input className="btn" type="button" value="4" onClick={doMath} />
+          <input className="btn" type="button" value="5" onClick={doMath} />
+          <input className="btn" type="button" value="6" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="-" />
+          <input className="btn" type="button" value="1" onClick={doMath} />
+          <input className="btn" type="button" value="2" onClick={doMath} />
+          <input className="btn" type="button" value="3" onClick={doMath} />
+          <input className="btn math-opr" type="button" onClick={doMath} value="+" />
+          <input className="btn" id="zero" type="button" value="0" onClick={doMath} />
+          <input className="btn" type="button" value="." onClick={doMath} />
+          <input className="btn math-opr" type="button" value="=" onClick={doMath} />
         </div>
       </div>
     </div>
   );
 }
 
-export default App;
+export default Calculator;
