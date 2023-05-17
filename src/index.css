@@ -30,80 +30,46 @@ body {
 }
 
 .calculator {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   width: 100vh;
   max-width: 400px;
   background-color: #fff;
   border-radius: 16px;
   overflow: hidden;
   align-items: center;
-  align-content: center;
-  box-shadow: 0 2px 64px rgba(0, 0, 0, 0.2);
 }
 
 .display {
   grid-column: 1 / -1;
   padding: 16px;
   text-align: right;
-  background-color: grey;
+  background-color: var(--dark);
   color: var(--light);
   font-size: 24px;
   font-weight: 300;
 }
 
-.dislay span {
-  font-size: 14px;
-  color: #8c38ff;
-}
-
-button {
-  appearance: none;
-  border: none;
-  outline: none;
-  color: #fff;
-  background-color: #131a26;
-  font-size: 20px;
-  padding: 16px;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-button:hover {
-  opacity: 0.9;
-  background-color: #8c38ff;
+.display span {
+  font-size: 12px;
+  color: var(--secondary);
 }
 
 .operators {
   display: grid;
-  grid-column: 4;
-  grid-row: span 4;
-  grid-template-rows: repeat(4, 1fr);
-  background-color: var(--light);
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.operators button {
-  flex: 1 1 0%;
+.btn {
+  width: 100px; /* Adjusted width to fit all buttons */
+  height: 75px; /* Adjusted height to fit all buttons */
+  font-size: 18px;
+}
+
+.math-opr {
   background-color: orange;
-  font-weight: 700;
+  color: white;
 }
 
-.operators button:hover {
-  background-color: #8c38ff;
-}
-
-.digits button.zero {
-  grid-column: span 2;
-}
-
-.digits {
-  display: grid;
-  grid-column: span 3;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.scienceo {
-  display: grid;
-  grid-column: span 3;
-  grid-template-columns: repeat(3, 1fr);
+#zero.btn {
+  width: 200px;
+  grid-column: span 2; /* Makes the zero button span two columns */
 }
