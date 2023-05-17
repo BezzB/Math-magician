@@ -5,6 +5,12 @@
   --light: #eee;
 }
 
+.homecontainer {
+  background-image: linear-gradient(to right, #14805e 0%, #2196f3 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 * {
   margin: 0;
   padding: 0;
